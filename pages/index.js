@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import MyComponent from "../components/myComponent.js";
+import { getHeapCodeStatistics } from "v8";
 
 const Home = () => (
   <div>
@@ -22,8 +23,17 @@ const Home = () => (
       data-button-type="continue_with"
       data-auto-logout-link="true"
       data-use-continue-as="true"
+      onlogin={getData()}
     ></div>
   </div>
 );
+
+function getData() {
+  FB.getLoginStatus(function(response) {
+    if (response.status === "connected") {
+      console.log(response.authResponse.accessToken);
+    }
+  });
+}
 
 export default Home;
