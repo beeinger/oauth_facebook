@@ -13,7 +13,7 @@ class MyComponent extends React.Component {
         appId="2173246342969843"
         autoLoad={true}
         fields="name,email,picture"
-        scope="public_profile,user_friends,user_actions.books"
+        scope="public_profile,user_friends"
         callback={this.responseFacebook}
       />
     );
