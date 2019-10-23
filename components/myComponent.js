@@ -28,7 +28,7 @@ class MyComponent extends React.Component {
           appId="2173246342969843"
           autoLoad={true}
           fields="name,email,picture"
-          scope="public_profile,user_friends"
+          scope="public_profile,user_friends,instagram_basic"
           callback={() => this.responseFacebook}
         />
         {this.state.response ? (
