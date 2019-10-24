@@ -13,8 +13,20 @@ class MyComponent extends React.Component {
 
   componentDidMount() {
     if (window.FB) {
-      this.facebookData !== window.FB.getAuthResponse() &&
+      if (this.facebookData !== window.FB.getAuthResponse()) {
         this.setState({ facebookData: window.FB.getAuthResponse() });
+        var respo = false;
+        fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
+          method: "post",
+          body: JSON.stringify(resp)
+        }).then(function(res) {
+          respo = res.json();
+          console.log(respo);
+        });
+        if (respo && respo !== this.state.response) {
+          this.setState({ response: respo });
+        }
+      }
     }
   }
 
