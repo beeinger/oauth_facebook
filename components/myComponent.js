@@ -6,18 +6,33 @@ class MyComponent extends React.Component {
     super(props);
 
     this.state = {
-      response: false
+      response: false,
+      facebookData: false
     };
   }
+
+  componentDidMount() {
+    if (
+      window.FB.getAuthResponse() &&
+      this.facebookData !== window.FB.getAuthResponse()
+    ) {
+      this.setState({ facebookData: window.FB.getAuthResponse() });
+    }
+  }
+
   responseFacebook(resp) {
     console.log(resp);
-    var that = this;
+    var respo = false;
     fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
       method: "post",
       body: JSON.stringify(resp)
     }).then(function(res) {
-      that.setState({ response: res.json() });
+      respo = res.json();
+      console.log(respo);
     });
+    if (respo) {
+      this.setState({ response: respo });
+    }
   }
 
   render() {
@@ -35,6 +50,11 @@ class MyComponent extends React.Component {
           <h1>{JSON.stringify(this.state.response)}</h1>
         ) : (
           <h1>Wait patiently</h1>
+        )}
+        {this.state.facebookData ? (
+          <h1>{JSON.stringify(this.state.facebookData)}</h1>
+        ) : (
+          <h1>No data</h1>
         )}
       </div>
     );
