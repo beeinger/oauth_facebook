@@ -52,7 +52,10 @@ class MyComponent extends React.Component {
         {this.state.facebookData ? (
           <h1>{JSON.stringify(this.state.facebookData)}</h1>
         ) : (
-          <h1>No data</h1>
+          <div>
+            <h1>No data</h1>
+            <button onClick={() => this.componentDidMount()}>Refresh</button>
+          </div>
         )}
       </div>
     );
