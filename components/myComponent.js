@@ -18,6 +18,9 @@ class MyComponent extends React.Component {
         var respo = false;
         fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
           method: "post",
+          headers: {
+            "Content-Type": "application/json"
+          },
           body: JSON.stringify(window.FB.getAuthResponse())
         }).then(function(res) {
           respo = res.json();
