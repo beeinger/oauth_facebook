@@ -12,11 +12,9 @@ class MyComponent extends React.Component {
   }
 
   componentDidMount() {
-    if (
-      window.FB.getAuthResponse() &&
-      this.facebookData !== window.FB.getAuthResponse()
-    ) {
-      this.setState({ facebookData: window.FB.getAuthResponse() });
+    if (window.FB) {
+      this.facebookData !== window.FB.getAuthResponse() &&
+        this.setState({ facebookData: window.FB.getAuthResponse() });
     }
   }
 
