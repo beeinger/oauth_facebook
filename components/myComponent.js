@@ -42,21 +42,6 @@ class MyComponent extends React.Component {
     }, 500);
   }
 
-  responseFacebook(resp) {
-    console.log(resp);
-    var respo = false;
-    fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
-      method: "post",
-      body: JSON.stringify(resp)
-    }).then(function(res) {
-      respo = res.json();
-      console.log(respo);
-    });
-    if (respo) {
-      this.setState({ response: respo });
-    }
-  }
-
   render() {
     return (
       <div>
@@ -66,7 +51,7 @@ class MyComponent extends React.Component {
           autoLoad={true}
           fields="name,email,picture"
           scope="public_profile,user_friends,instagram_basic"
-          callback={() => this.responseFacebook}
+          callback={() => this.componentDidMount()}
         />
         {this.state.response ? (
           <h1>{JSON.stringify(this.state.response)}</h1>
