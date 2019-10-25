@@ -26,8 +26,8 @@ class MyComponent extends React.Component {
               "Content-Type": "application/json"
             },
             body: JSON.stringify(window.FB.getAuthResponse())
-          }).then(function(res) {
-            respo = res.json();
+          }).then(async function(res) {
+            respo = await res.json();
             console.log(respo);
           });
           if (respo && respo !== this.state.response) {
