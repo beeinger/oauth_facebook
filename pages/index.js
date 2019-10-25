@@ -1,7 +1,7 @@
 import React from "react";
 import FacebookButton from "../components/FacebookButton.js";
-import dynamic from "next/dynamic";
-import Layout from "../components/Layout"
+import Layout from "../components/Layout";
+// import dynamic from "next/dynamic";
 
 const Home = () => (
   <Layout>
