@@ -12,8 +12,11 @@ class MyComponent extends React.Component {
   }
 
   componentDidMount() {
+    console.log("componendidmount");
     if (window.FB) {
-      if (this.facebookData !== window.FB.getAuthResponse()) {
+      console.log("window.FB");
+      if (this.state.facebookData !== window.FB.getAuthResponse()) {
+        console.log("try");
         this.setState({ facebookData: window.FB.getAuthResponse() });
         var respo = false;
         fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
