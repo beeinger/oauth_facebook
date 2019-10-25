@@ -1,5 +1,6 @@
 import React from "react";
 import FacebookLogin from "react-facebook-login";
+import { Button } from "react-bootstrap";
 
 class FacebookButton extends React.Component {
   constructor(props) {
@@ -54,15 +55,16 @@ class FacebookButton extends React.Component {
     return (
       <div>
         {/* https://www.npmjs.com/package/react-facebook-login - for info about editting */}
-        {this.state.facebookData ? (
-          <button
-            onClick={() => {
-              window.FB.logout() & this.facebookHandler("logout");
-            }}
-          >
-            Log out
-          </button>
-        ) : (
+        {/* {this.state.facebookData ? ( */}
+        <Button
+          variant="primary"
+          onClick={() => {
+            window.FB.logout() & this.facebookHandler("logout");
+          }}
+        >
+          Log out
+        </Button>
+        {/* ) : (
           <FacebookLogin
             appId="2173246342969843"
             autoLoad={true}
@@ -70,7 +72,7 @@ class FacebookButton extends React.Component {
             scope="public_profile,user_friends,instagram_basic"
             callback={() => this.facebookHandler("login")}
           />
-        )}
+        )} */}
       </div>
     );
   }
