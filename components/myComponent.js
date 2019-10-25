@@ -48,7 +48,13 @@ class MyComponent extends React.Component {
         {this.state.facebookData ? (
           <div>
             <h1>{JSON.stringify(this.state.facebookData)}</h1>
-            <button onClick={() => window.FB.logout()}>Log out</button>
+            <button
+              onClick={() => {
+                window.FB.logout() & this.componentDidMount();
+              }}
+            >
+              Log out
+            </button>
           </div>
         ) : (
           <div>
