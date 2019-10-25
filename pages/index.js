@@ -1,14 +1,13 @@
 import React from "react";
 import Head from "next/head";
-import MyComponent from "../components/myComponent.js";
+import FacebookButton from "../components/FacebookButton.js";
 
 const Home = () => (
   <div>
     <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Facebook Button</title>
     </Head>
-    <MyComponent />
+    <FacebookButton />
   </div>
 );
 
