@@ -9,6 +9,7 @@ class MyComponent extends React.Component {
       response: false,
       facebookData: false
     };
+    this.responseFacebook = this.responseFacebook.bind(this);
   }
 
   componentDidMount() {
