@@ -13,27 +13,29 @@ class MyComponent extends React.Component {
 
   componentDidMount() {
     console.log("componendidmount");
-    if (window.FB) {
-      console.log("window.FB");
-      if (this.state.facebookData !== window.FB.getAuthResponse()) {
-        console.log("try");
-        this.setState({ facebookData: window.FB.getAuthResponse() });
-        var respo = false;
-        fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(window.FB.getAuthResponse())
-        }).then(function(res) {
-          respo = res.json();
-          console.log(respo);
-        });
-        if (respo && respo !== this.state.response) {
-          this.setState({ response: respo });
+    setTimeout(() => {
+      if (window.FB) {
+        console.log("window.FB");
+        if (this.state.facebookData !== window.FB.getAuthResponse()) {
+          console.log("try");
+          this.setState({ facebookData: window.FB.getAuthResponse() });
+          var respo = false;
+          fetch("https://stark-retreat-68154.herokuapp.com/facebook", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(window.FB.getAuthResponse())
+          }).then(function(res) {
+            respo = res.json();
+            console.log(respo);
+          });
+          if (respo && respo !== this.state.response) {
+            this.setState({ response: respo });
+          }
         }
       }
-    }
+    }, 500);
   }
 
   responseFacebook(resp) {
