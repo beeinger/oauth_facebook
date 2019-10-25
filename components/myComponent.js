@@ -45,24 +45,20 @@ class MyComponent extends React.Component {
     return (
       <div>
         {/* https://www.npmjs.com/package/react-facebook-login - for info about editting */}
-        <FacebookLogin
-          appId="2173246342969843"
-          autoLoad={true}
-          fields="name,email,picture"
-          scope="public_profile,user_friends,instagram_basic"
-          callback={() => this.componentDidMount()}
-        />
-        {this.state.response ? (
-          <h1>{JSON.stringify(this.state.response)}</h1>
-        ) : (
-          <h1>Wait patiently</h1>
-        )}
         {this.state.facebookData ? (
-          <h1>{JSON.stringify(this.state.facebookData)}</h1>
+          <div>
+            <h1>{JSON.stringify(this.state.facebookData)}</h1>
+            <button onClick={() => window.FB.logout()}>Log out</button>
+          </div>
         ) : (
           <div>
-            <h1>No data</h1>
-            <button onClick={() => this.componentDidMount()}>Refresh</button>
+            <FacebookLogin
+              appId="2173246342969843"
+              autoLoad={true}
+              fields="name,email,picture"
+              scope="public_profile,user_friends,instagram_basic"
+              callback={() => this.componentDidMount()}
+            />
           </div>
         )}
       </div>
