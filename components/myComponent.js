@@ -17,7 +17,7 @@ class MyComponent extends React.Component {
     setTimeout(async () => {
       if (window.FB) {
         var fbdata = await window.FB.getAuthResponse();
-        if ("accessToken" in fbdata) {
+        if (fbdata && "accessToken" in fbdata) {
           console.log("window.FB");
           if (this.state.facebookData !== fbdata) {
             console.log("try");
