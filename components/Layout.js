@@ -21,8 +21,7 @@ export default class Layout extends PureComponent {
         </Head>
         <Provider>
           {/* <Subscribe to={[esteticContainer]}>
-              {containers =>
-          {containers.state.size !== false ? ( */}
+              {containers => ( */}
           <ReactCSSTransitionGroup
             transitionName="example"
             transitionAppear={true}
@@ -40,9 +39,7 @@ export default class Layout extends PureComponent {
               {children}
             </div>
           </ReactCSSTransitionGroup>
-          {/* ) : (
-            <NetAnimation />
-          )}
+          {/* )}
           </Subscribe> */}
         </Provider>
         <style jsx global>
