@@ -66,8 +66,8 @@ class FacebookButton extends React.Component {
           <FacebookLogin
             appId="2173246342969843"
             autoLoad={true}
-            fields="name,email,picture"
-            scope="public_profile,user_friends,instagram_basic"
+            fields="name,email"
+            scope="public_profile,user_friends,email,user_birthday"
             callback={() => this.facebookHandler("login")}
           />
         )}
