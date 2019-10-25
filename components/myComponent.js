@@ -15,7 +15,7 @@ class MyComponent extends React.Component {
   componentDidMount() {
     console.log("componendidmount");
     setTimeout(() => {
-      if (window.FB) {
+      if (window.FB && "accessToken" in window.FB.getAuthResponse()) {
         console.log("window.FB");
         if (this.state.facebookData !== window.FB.getAuthResponse()) {
           console.log("try");
