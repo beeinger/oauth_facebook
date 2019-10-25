@@ -1,14 +1,15 @@
 import React from "react";
-import Head from "next/head";
 import FacebookButton from "../components/FacebookButton.js";
+import dynamic from "next/dynamic";
+
+const Layout = dynamic(() => import("../components/Layout"), {
+  ssr: false
+});
 
 const Home = () => (
-  <div>
-    <Head>
-      <title>Facebook Button</title>
-    </Head>
+  <Layout>
     <FacebookButton />
-  </div>
+  </Layout>
 );
 
 export default Home;

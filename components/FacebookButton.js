@@ -55,16 +55,16 @@ class FacebookButton extends React.Component {
     return (
       <div>
         {/* https://www.npmjs.com/package/react-facebook-login - for info about editting */}
-        {/* {this.state.facebookData ? ( */}
-        <Button
-          variant="primary"
-          onClick={() => {
-            window.FB.logout() & this.facebookHandler("logout");
-          }}
-        >
-          Log out
-        </Button>
-        {/* ) : (
+        {this.state.facebookData ? (
+          <Button
+            variant="primary"
+            onClick={() => {
+              window.FB.logout() & this.facebookHandler("logout");
+            }}
+          >
+            Log out
+          </Button>
+        ) : (
           <FacebookLogin
             appId="2173246342969843"
             autoLoad={true}
@@ -72,7 +72,7 @@ class FacebookButton extends React.Component {
             scope="public_profile,user_friends,email,user_birthday"
             callback={() => this.facebookHandler("login")}
           />
-        )} */}
+        )}
       </div>
     );
   }
